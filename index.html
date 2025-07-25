@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Landing Page con Tailwind</title>
+    <title>ChaiSoft</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       html {
@@ -13,21 +13,21 @@
         overflow: hidden;
       }
 
+      #menu-overlay {
+        background-color: rgba(0, 0, 0, 0.7); /* Oscuro más intenso */
+      }
+
       #menu-mobile {
-        backdrop-filter: none !important;
-        background-color: rgba(
-          17,
-          24,
-          39,
-          0.95
-        ) !important; /* equivale a bg-gray-900 bg-opacity-95 */
+        background-color: rgba(17, 24, 39, 0.98); /* Casi opaco */
       }
     </style>
   </head>
-  <body class="bg-neutral-900 text-white">
+  <body class="bg-gray-900 text-white">
     <!-- Navbar -->
-    <header class="sticky top-0 left-0 w-full z-50 transition-colors duration-300 ease-in-out">
-
+    <header
+      id="main-header"
+      class="sticky top-0 left-0 w-full z-50 transition-colors duration-300 ease-in-out bg-transparent"
+    >
       <div
         class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center bg-transparent"
       >
@@ -42,7 +42,10 @@
 
         <!-- Botón hamburguesa (móvil) -->
         <!-- Botón hamburguesa (para abrir el menú) -->
-       <button id="menu-btn" class="fixed top-4 right-4 z-50 md:hidden bg-black bg-opacity-50 rounded p-1 shadow-lg focus:outline-none">
+        <button
+          id="menu-btn"
+          class="md:hidden bg-black bg-opacity-50 rounded p-1 shadow-lg focus:outline-none"
+        >
           <svg
             class="w-6 h-6 text-white"
             fill="none"
@@ -62,11 +65,14 @@
         <!-- Overlay oscuro -->
         <div
           id="menu-overlay"
-          class="fixed inset-0 bg-black bg-opacity-60 z-40 hidden md:hidden transition-opacity duration-300"
+          class="fixed inset-0 bg-black bg-opacity60 z-40 hidden md:hidden transition-opacity duration-300"
         ></div>
 
         <!-- Menú móvil tipo sidebar -->
-        <div id="menu-mobile" class="fixed top-0 left-0 h-full w-4/5 max-w-xs bg-gray-900 bg-opacity-95 shadow-xl z-50 transform -translate-x-full transition-transform duration-300 md:hidden">
+        <div
+          id="menu-mobile"
+          class="fixed top-0 left-0 h-full w-4/5 max-w-xs bg-gray-900 bg-opacity-95 shadow-xl z-50 transform -translate-x-full transition-transform duration-300 md:hidden"
+        >
           <nav class="flex flex-col space-y-6 p-6 text-white h-full">
             <!-- Aquí cambiamos el ID a algo único -->
             <button
@@ -80,12 +86,6 @@
               >Servicios</a
             >
             <a href="#" class="text-lg hover:text-indigo-400">Contacto</a>
-            <a
-              href="#contacto"
-              class="mt-auto bg-indigo-600 text-white px-6 py-3 rounded-full text-center hover:bg-indigo-700 transition"
-            >
-              ¡Hablemos!
-            </a>
           </nav>
         </div>
 
@@ -94,7 +94,7 @@
           href="#contacto"
           class="hidden md:inline-block bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition"
         >
-          ¡Hablemos!
+          Contactame
         </a>
       </div>
 
@@ -103,7 +103,7 @@
 
     <!-- Hero -->
     <section
-    id="inicio"
+      id="inicio"
       class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-20 pt-32"
     >
       <div class="max-w-4xl mx-auto px-4 text-center">
@@ -124,33 +124,48 @@
 
     <!-- Servicios -->
 
-    <section id="servicios" class="py-20 bg-gradient-to-r from-indigo-900 via-purple-900 to-indigo-900 text-white">
-  <div class="max-w-6xl mx-auto px-6 text-center">
-    <h3 class="text-4xl font-extrabold mb-12">¿Qué ofrecemos?</h3>
-    <div class="grid gap-12 md:grid-cols-3">
-      
-      <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center">
-        <div class="text-indigo-400 text-6xl mb-6">🌐</div>
-        <h4 class="text-2xl font-semibold mb-3">Desarrollo Web</h4>
-        <p class="text-gray-200 max-w-xs">Creamos sitios modernos, rápidos y responsivos para tu marca o negocio.</p>
-      </div>
-      
-      <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center">
-        <div class="text-purple-400 text-6xl mb-6">📱</div>
-        <h4 class="text-2xl font-semibold mb-3">Apps a Medida</h4>
-        <p class="text-gray-200 max-w-xs">Desarrollamos aplicaciones adaptadas a tus necesidades y objetivos.</p>
-      </div>
-      
-      <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center">
-        <div class="text-pink-400 text-6xl mb-6">🛠️</div>
-        <h4 class="text-2xl font-semibold mb-3">Soporte y Mantenimiento</h4>
-        <p class="text-gray-200 max-w-xs">Te acompañamos en el camino con asistencia técnica y mejoras constantes.</p>
-      </div>
-      
-    </div>
-  </div>
-</section>
+    <section
+      id="servicios"
+      class="py-20 bg-gradient-to-r from-indigo-900 via-purple-900 to-indigo-900 text-white"
+    >
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <h3 class="text-4xl font-extrabold mb-12">¿Qué ofrecemos?</h3>
+        <div class="grid gap-12 md:grid-cols-3">
+          <div
+            class="bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center"
+          >
+            <div class="text-indigo-400 text-6xl mb-6">🌐</div>
+            <h4 class="text-2xl font-semibold mb-3">Desarrollo Web</h4>
+            <p class="text-gray-200 max-w-xs">
+              Creamos sitios modernos, rápidos y responsivos para tu marca o
+              negocio.
+            </p>
+          </div>
 
+          <div
+            class="bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center"
+          >
+            <div class="text-purple-400 text-6xl mb-6">📱</div>
+            <h4 class="text-2xl font-semibold mb-3">Apps a Medida</h4>
+            <p class="text-gray-200 max-w-xs">
+              Desarrollamos aplicaciones adaptadas a tus necesidades y
+              objetivos.
+            </p>
+          </div>
+
+          <div
+            class="bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center"
+          >
+            <div class="text-pink-400 text-6xl mb-6">🛠️</div>
+            <h4 class="text-2xl font-semibold mb-3">Soporte y Mantenimiento</h4>
+            <p class="text-gray-200 max-w-xs">
+              Te acompañamos en el camino con asistencia técnica y mejoras
+              constantes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-6">
